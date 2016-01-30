@@ -1,11 +1,10 @@
-﻿Shader "Custom/NewSurfaceShader" {
+﻿Shader "Custom/TileShader" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_FloorTex ("Floor", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_ShowGlyph ("ShowGlyph", Range(0,1)) = 0
+		_Saturation ("Saturation", Range(0,1)) = 1
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -13,7 +12,7 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows finalcolor:finalcolor
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
@@ -25,15 +24,19 @@
 			float2 uv_MainTex;
 		};
 
-		half _Glossiness;
-		half _Metallic;
 		fixed4 _Color;
 		float _ShowGlyph;
+		float _Saturation;
+
+		fixed3 saturation(fixed3 col){
+			return lerp(dot(col, fixed3(.222, .707, .071)), col, _Saturation);
+		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-			// Albedo comes from a texture tinted by color
-			fixed4 floor = tex2D(_FloorTex, IN.uv_MainTex);
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+			float2 newUV = IN.uv_MainTex;
+
+			fixed4 floor = tex2D(_FloorTex, newUV);
+			fixed4 c = tex2D (_MainTex, newUV);
 			if (distance(c, fixed4(0,0,0,0)) < .1){
 				o.Albedo = _Color.rgb;
 			}
@@ -42,12 +45,13 @@
 			}
 
 			o.Albedo = lerp(o.Albedo, floor.rgb, .3);
-
-			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
 		}
+
+		void finalcolor (Input IN, SurfaceOutputStandard o, inout fixed4 color){
+			color.rgb = saturation(color.rgb);
+		}
+
 		ENDCG
 	}
 	FallBack "Diffuse"

@@ -5,10 +5,10 @@ public class BadTile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponentInChildren<TileEntered>().SetAction(TileAction);
+		GetComponentInChildren<TileEntered>().SetEnterAction(TileEnterAction);
 	}
 
-	void TileAction(){
+	void TileEnterAction(){
 		Debug.Log("BAD TILE");
 	}
 }

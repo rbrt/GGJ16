@@ -5,22 +5,34 @@ public class GoodTile : MonoBehaviour {
 
 	Renderer targetRenderer;
 
-	static string showGlyph = "_ShowGlyph";
+	static string showGlyph = "_ShowGlyph",
+				  saturation = "_Saturation";
+
+	SafeCoroutine hintDisplayCoroutine;
 
 	void Awake () {
 		targetRenderer = GetComponentInChildren<Renderer>();
 		targetRenderer.material = new Material(targetRenderer.material);
 		targetRenderer.material.SetFloat(showGlyph, 0);
-		GetComponentInChildren<TileEntered>().SetAction(TileAction);
+		GetComponentInChildren<TileEntered>().SetEnterAction(TileEnterAction);
+		GetComponentInChildren<TileEntered>().SetExitAction(TileExitAction);
 	}
 
 	public void HighlightTile(Texture2D tex){
 		targetRenderer.material.SetTexture("_MainTex", tex);
-		this.StartSafeCoroutine(ShowHint());
+		hintDisplayCoroutine = this.StartSafeCoroutine(ShowHint());
 	}
 
-	void TileAction(){
+	void TileEnterAction(){
 		FloorTileManager.Instance.PlayerEnteredGoodTile(this);
+	}
+
+	void TileExitAction(){
+		if (hintDisplayCoroutine != null && hintDisplayCoroutine.IsRunning){
+			hintDisplayCoroutine.Stop();
+		}
+
+		this.StartSafeCoroutine(KillTile());
 	}
 
 	IEnumerator ShowHint(){
@@ -45,6 +57,13 @@ public class GoodTile : MonoBehaviour {
 				targetRenderer.material.SetFloat(showGlyph, 1 - (i * .2f));
 				yield return null;
 			}
+		}
+	}
+
+	IEnumerator KillTile(){
+		for (float i = 0; i < 1; i += Time.deltaTime){
+			targetRenderer.material.SetFloat(saturation, 1-i);
+			yield return null;
 		}
 	}
 }

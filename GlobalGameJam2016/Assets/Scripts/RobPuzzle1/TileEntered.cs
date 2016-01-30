@@ -4,14 +4,25 @@ using System.Collections;
 public class TileEntered : MonoBehaviour {
 
 	System.Action enterAction;
+	System.Action exitAction;
 
-	public void SetAction(System.Action action){
+	public void SetEnterAction(System.Action action){
 		enterAction = action;
+	}
+
+	public void SetExitAction(System.Action action){
+		exitAction = action;
 	}
 
 	void OnTriggerEnter(Collider other){
 		if (other.GetComponent<MainPlayerController>() != null){
 	 		enterAction.Invoke();
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.GetComponent<MainPlayerController>() != null){
+	 		exitAction.Invoke();
 		}
 	}
 }

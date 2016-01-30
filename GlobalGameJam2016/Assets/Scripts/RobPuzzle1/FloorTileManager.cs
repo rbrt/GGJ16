@@ -46,26 +46,21 @@ public class FloorTileManager : MonoBehaviour {
 	HintTiles GetNextHint(GoodTile currentTile, GoodTile nextTile){
 		if (Mathf.Approximately(currentTile.transform.localPosition.z, nextTile.transform.localPosition.z)){
 			if (currentTile.transform.localPosition.x < nextTile.transform.localPosition.x){
-				Debug.Log("Forward"  + currentTile.transform.localPosition + " " + nextTile.transform.position);
 				return HintTiles.Forward;
 			}
 			else{
-				Debug.Log("Backward"  + currentTile.transform.localPosition + " " + nextTile.transform.position);
 				return HintTiles.Backward;
 			}
 		}
 		else if (Mathf.Approximately(currentTile.transform.localPosition.x, nextTile.transform.localPosition.x)){
 			if (currentTile.transform.localPosition.z < nextTile.transform.localPosition.z){
-				Debug.Log("Left"  + currentTile.transform.localPosition + " " + nextTile.transform.position);
 				return HintTiles.Left;
 			}
 			else{
-				Debug.Log("Right"  + currentTile.transform.localPosition + " " + nextTile.transform.position);
 				return HintTiles.Right;
 			}
 		}
 
-		Debug.Log("UH OH" + currentTile.transform.localPosition + " " + nextTile.transform.position);
 		return HintTiles.Forward;
 	}
 
