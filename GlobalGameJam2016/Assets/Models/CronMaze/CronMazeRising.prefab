@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &113198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489032}
+  - 114: {fileID: 11451590}
+  m_Layer: 0
+  m_Name: CronMazeRising
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &489032
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113198}
+  m_LocalRotation: {x: 0, y: -0.007157486, z: 0, w: 0.9999744}
+  m_LocalPosition: {x: 0.5, y: 6.027303, z: -23.012774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11451590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f6c47d1e28946f3a41cdb526d71a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  Platform: {fileID: 178002, guid: df4cc6c6067b4469db7790e376693b9b, type: 2}
+  Gem: {fileID: 154306, guid: 5637309e507ad4093abc18e4112a13e4, type: 2}
+  Door: {fileID: 0}
+  Depth: 60
+  Width: 40
+  EndHeight: 25
+  ApproximateCubeWidth: 5
+  ApproximateCubeDepth: 5
+  WidthErrorMargin: 9
+  DepthErrorMargin: 7
+  HeightErrorMargin: 4
+  DoorOpenTime: 5
+  DoorOpenHeight: 45
+  NumGems: 4
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 113198}
+  m_IsPrefabParent: 1
