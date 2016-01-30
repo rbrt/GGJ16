@@ -19,10 +19,6 @@ public class MainPlayerController : MonoBehaviour {
 
 	string jumpStateName = "Jump";
 
-	void Start () {
-	
-	}
-	
 	void Update () {
 		HandleInput();
 		HandleAnimations();

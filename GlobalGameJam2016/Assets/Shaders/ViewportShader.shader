@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		_Saturation ("Saturation", Range(0,1)) = 1
 	}
 	SubShader
 	{
@@ -16,7 +17,7 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-			
+
 			#include "UnityCG.cginc"
 
 			struct appdata
@@ -34,7 +35,8 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-			
+			float _Saturation;
+
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -42,10 +44,13 @@
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				return o;
 			}
-			
+
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
+
+				col.rgb = lerp(dot(col.rgb, fixed3(.222, .707, .071)), col.rgb, _Saturation);
+
 				return col;
 			}
 			ENDCG
