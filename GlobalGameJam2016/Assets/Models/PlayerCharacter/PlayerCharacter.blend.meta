@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: 6266aee52614e4c9599be98f4b754da0
+timeCreated: 1454109427
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Base
+    100004: Chest
+    100006: Cloak
+    100008: Collar_l
+    100010: Collar_r
+    100012: Cube
+    100014: Foot_l
+    100016: Foot_r
+    100018: Head
+    100020: LowerArm_l
+    100022: LowerArm_r
+    100024: LowerLeg_l
+    100026: LowerLeg_r
+    100028: Neck
+    100030: Pelvis
+    100032: //RootNode
+    100034: Root
+    100036: Stomach
+    100038: Toe_l
+    100040: Toe_r
+    100042: UpperArm_l
+    100044: UpperArm_r
+    100046: UpperLeg_l
+    100048: UpperLeg_r
+    100050: Bone
+    100052: CloakArmature
+    100054: ClothFront
+    100056: ClothFront_001
+    400000: Armature
+    400002: Base
+    400004: Chest
+    400006: Cloak
+    400008: Collar_l
+    400010: Collar_r
+    400012: Cube
+    400014: Foot_l
+    400016: Foot_r
+    400018: Head
+    400020: LowerArm_l
+    400022: LowerArm_r
+    400024: LowerLeg_l
+    400026: LowerLeg_r
+    400028: Neck
+    400030: Pelvis
+    400032: //RootNode
+    400034: Root
+    400036: Stomach
+    400038: Toe_l
+    400040: Toe_r
+    400042: UpperArm_l
+    400044: UpperArm_r
+    400046: UpperLeg_l
+    400048: UpperLeg_r
+    400050: Bone
+    400052: CloakArmature
+    400054: ClothFront
+    400056: ClothFront_001
+    2300000: Cloak
+    3300000: Cloak
+    4300000: Cloak
+    4300002: Cube
+    6400000: Cloak
+    7400000: Default Take
+    7400002: Idle
+    7400004: Walk
+    7400006: Jump
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cloak
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Base
+        weight: 1
+      - path: Armature/Root/Base/Pelvis
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l/Toe_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r/Toe_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l/LowerArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r/LowerArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck/Head
+        weight: 1
+      - path: Cloak
+        weight: 1
+      - path: CloakArmature
+        weight: 1
+      - path: CloakArmature/Bone
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Base
+        weight: 1
+      - path: Armature/Root/Base/Pelvis
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l/Toe_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r/Toe_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l/LowerArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r/LowerArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck/Head
+        weight: 1
+      - path: Cloak
+        weight: 1
+      - path: CloakArmature
+        weight: 1
+      - path: CloakArmature/Bone
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Base
+        weight: 1
+      - path: Armature/Root/Base/Pelvis
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l/Toe_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r/Toe_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l/LowerArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r/LowerArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck/Head
+        weight: 1
+      - path: Cloak
+        weight: 1
+      - path: CloakArmature
+        weight: 1
+      - path: CloakArmature/Bone
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump
+      takeName: Jump
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Base
+        weight: 1
+      - path: Armature/Root/Base/Pelvis
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_l/LowerLeg_l/Foot_l/Toe_l
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r
+        weight: 1
+      - path: Armature/Root/Base/Pelvis/UpperLeg_r/LowerLeg_r/Foot_r/Toe_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_l/UpperArm_l/LowerArm_l
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Collar_r/UpperArm_r/LowerArm_r
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Base/Stomach/Chest/Neck/Head
+        weight: 1
+      - path: Cloak
+        weight: 1
+      - path: CloakArmature
+        weight: 1
+      - path: CloakArmature/Bone
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: Root
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
