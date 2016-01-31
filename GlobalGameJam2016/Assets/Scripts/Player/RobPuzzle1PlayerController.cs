@@ -20,6 +20,9 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 	[SerializeField] protected RobPuzzle1Camera puzzleCamera;
 	[SerializeField] protected ParticleSystem deathParticleSystem;
 
+	[SerializeField] protected Transform viewA,
+										 viewB;
+
 	float forwardMoveSpeed = 20f,
 		  backwardMoveSpeed = 10f,
 	      sideMoveSpeed = 14f,
@@ -29,7 +32,9 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 	     jumping = false,
 		 rotating = false,
 		 dead = false,
-		 lockout = false;
+		 lockout = false,
+		 initialized = false;
+
 
 	bool lastWalking = false;
 
@@ -37,7 +42,7 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 
 	Vector3 moveDirection;
 
-	public void Die(){
+	public void Die(bool success){
 		if (dead){
 			return;
 		}
@@ -51,13 +56,15 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		HandleAnimations();
 		playerAnimator.SetBool("Walking", false);
 
-		this.StartSafeCoroutine(DeathSequence());
+		this.StartSafeCoroutine(DeathSequence(success));
 	}
 
-	IEnumerator DeathSequence(){
+	IEnumerator DeathSequence(bool success){
 		yield return new WaitForSeconds(.5f);
 
-		yield return this.StartSafeCoroutine(MoveCameraToDeathAngle());
+		if (!success){
+			yield return this.StartSafeCoroutine(MoveCameraToDeathAngle());
+		}
 		yield return new WaitForSeconds(.2f);
 
 		// play death animation here too
@@ -66,7 +73,9 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 
 		yield return new WaitForSeconds(2);
 
-		TextManager.Instance.ShowFailureString();
+		if (!success){
+			TextManager.Instance.ShowFailureString();
+		}
 
 		yield return new WaitForSeconds(1);
 
@@ -106,11 +115,12 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 
 		if (instance == null){
 			instance = this;
+			this.StartSafeCoroutine(StartScene());
 		}
 	}
 
 	void Update () {
-		if (dead || lockout){
+		if (dead || lockout || !initialized){
 			return;
 		}
 		HandleInput();
@@ -175,5 +185,51 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 
 	void EndScene(){
 		SceneManager.LoadScene("RobPuzzle1");
+	}
+
+	IEnumerator StartScene(){
+		var targetCamera = puzzleCamera.GetComponentInChildren<Camera>().transform;
+
+		var originalRotation = targetCamera.transform.rotation;
+		var originalPosition = targetCamera.transform.position;
+
+		var targetRotation = viewA.transform.rotation;
+		var currentRotation = targetCamera.transform.rotation;
+		var currentPosition = targetCamera.transform.position;
+		var targetPosition = viewA.transform.position;
+
+		targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, 1);
+		targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, 1);
+
+		yield return new WaitForSeconds(2.5f);
+
+		targetRotation = viewB.transform.rotation;
+		currentRotation = targetCamera.transform.rotation;
+		currentPosition = targetCamera.transform.position;
+		targetPosition = viewB.transform.position;
+
+		for (float i = 0; i <= 1; i += Time.deltaTime / 1.5f){
+			targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, i);
+			targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, i);
+			yield return null;
+		}
+
+		yield return new WaitForSeconds(.25f);
+
+		targetRotation = originalRotation;
+		currentRotation = targetCamera.transform.rotation;
+		currentPosition = targetCamera.transform.position;
+		targetPosition = originalPosition;
+
+		for (float i = 0; i <= 1; i += Time.deltaTime / 1.5f){
+			targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, i);
+			targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, i);
+			yield return null;
+		}
+
+		targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, 1);
+		targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, 1);
+
+		initialized = true;
 	}
 }

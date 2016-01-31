@@ -14,6 +14,10 @@ public class StartLightOrbSequence : MonoBehaviour {
 
 	[SerializeField] protected CandleHandler candleHandler;
 
+
+	[SerializeField] protected Transform viewA,
+										 viewB,
+										 sacrificePosition;
 	bool happened = false;
 
 	void OnTriggerEnter(Collider other){
@@ -63,6 +67,10 @@ public class StartLightOrbSequence : MonoBehaviour {
 			yield return null;
 		}
 
+		Destroy(RobPuzzle1PlayerController.Instance.GetComponent<Rigidbody>());
+		RobPuzzle1PlayerController.Instance.transform.position = sacrificePosition.position;
+		RobPuzzle1PlayerController.Instance.GetComponent<Animator>().SetBool("Walking", false);
+
 		targetCamera.transform.position = orbViewingTarget.position;
 		targetCamera.transform.rotation = orbViewingTarget.rotation;
 
@@ -77,6 +85,37 @@ public class StartLightOrbSequence : MonoBehaviour {
 
 		yield return new WaitForSeconds(.5f);
 		this.StartSafeCoroutine(LightPentagonAndCandles());
+
+		yield return new WaitForSeconds(.25f);
+
+		targetRotation = viewA.transform.rotation;
+		currentRotation = targetCamera.transform.rotation;
+		var currentPosition = targetCamera.transform.position;
+		var targetPosition = viewA.transform.position;
+
+		for (float i = 0; i <= 1; i += Time.deltaTime){
+			targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, i);
+			targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, i);
+			yield return null;
+		}
+
+		targetRotation = viewB.transform.rotation;
+		currentRotation = targetCamera.transform.rotation;
+		currentPosition = targetCamera.transform.position;
+		targetPosition = viewB.transform.position;
+
+		for (float i = 0; i <= 1; i += Time.deltaTime / 1.25f){
+			targetCamera.transform.position = Vector3.Lerp(currentPosition, targetPosition, i);
+			targetCamera.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, i);
+			yield return null;
+		}
+
+		RobPuzzle1PlayerController.Instance.Die(true);
+
+		yield return new WaitForSeconds(.5f);
+
+		TextManager.Instance.ShowUltimateSuccessString();
+
 	}
 
 

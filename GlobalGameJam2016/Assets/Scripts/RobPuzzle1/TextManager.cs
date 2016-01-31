@@ -36,7 +36,7 @@ public class TextManager : MonoBehaviour {
 	}
 
 	public void ShowUltimateSuccessString(){
-		this.StartSafeCoroutine(ShowText(ultimateSuccessString));
+		this.StartSafeCoroutine(ShowText(successString));
 	}
 
 	public void ShowFailureString(){
