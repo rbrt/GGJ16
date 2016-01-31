@@ -70,6 +70,19 @@ public class PlatformManager : MonoBehaviour {
 		for (int w = 0; w < widthIterations; w++) {
 			for (int d = 0; d < depthIterations; d++) {
 
+				bool placeGem = false;
+				int index = (w * widthIterations) + d;
+
+				for (int i = 0; i < NumGems; i++) {
+					if (gems[i] == index) {
+						placeGem = true;
+					}
+				}
+
+				if (!placeGem && Random.Range(0, 2) == 0) {
+					continue;
+				}
+
 				GameObject plat = GameObject.Instantiate(Platform);
 				float xPos = spos.x + ((float)w/widthIterations)*Width;
 				float yPos = spos.y + ((float)d/depthIterations)*EndHeight;
@@ -77,26 +90,26 @@ public class PlatformManager : MonoBehaviour {
 
 				float xScale = ApproximateCubeWidth + Random.Range(-WidthErrorMargin/2f, WidthErrorMargin/2f);
 				float yScale = avgHeight + Random.Range(-HeightErrorMargin/2f, HeightErrorMargin/2f);
-				float zScale = ApproximateCubeDepth + Random.Range(-DepthErrorMargin/2f, DepthErrorMargin/2f);
+				float zScale = xScale;
 
 				plat.transform.position = new Vector3(xPos, yPos, zPos);
 				plat.transform.localScale = new Vector3(xScale, yScale, zScale );
 				plat.transform.parent = transform;
 				float c = Random.Range(0f,1f);
-				plat.GetComponent<MeshRenderer>().material.color = new Color(c, c, c);
 
+				Color col = new Color(c, c, c, 1.0f);
+				plat.GetComponent<MeshRenderer>().material.color = col; 
+				plat.GetComponent<Platform>().SetMaterialColor(col);
+					
 				plat.GetComponent<Platform>().Player = Player;
 				plat.GetComponent<Platform>().Platformer = this;
 
-				int index = (w * widthIterations) + d;
-
-				for (int i = 0; i < NumGems; i++) {
-					if (gems[i] == index) {
-						PlaceGem(plat.transform.position, yScale);
-					}
-				}
 
 				platforms.Add(plat);
+
+				if (placeGem) {
+					PlaceGem(plat.transform.position, yScale);
+				}
 			}
 		}
 	}
