@@ -6,12 +6,13 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ViewportMaterial
-  m_Shader: {fileID: 4800000, guid: b4e6f35bbc34443eab8bd1ed96075431, type: 3}
-  m_ShaderKeywords: 
+  m_Name: Pentagram
+  m_Shader: {fileID: 4800000, guid: 7e8f0549987b64a4aa44f0f2f23cd63f, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,7 +20,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 8400000, guid: a2f2917e312b04379ad2471716f98a15, type: 2}
+          m_Texture: {fileID: 2800000, guid: bdee173f7f2274031be9295668eae6bf, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,6 +79,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FloorTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -130,11 +138,11 @@ Material:
       data:
         first:
           name: _Mode
-        second: 0
+        second: 1
       data:
         first:
-          name: _Crush
-        second: 600
+          name: _ShowGlyph
+        second: 0
     m_Colors:
       data:
         first:
@@ -143,4 +151,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.50716144, g: 0.31372863, b: 0.2856675, a: 0.37}

@@ -49,7 +49,6 @@
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				i.uv = floor(i.uv * _Crush) / _Crush;
 				fixed4 col = tex2D(_MainTex, i.uv);
 
 				col.rgb = lerp(dot(col.rgb, fixed3(.222, .707, .071)), col.rgb, _Saturation);
