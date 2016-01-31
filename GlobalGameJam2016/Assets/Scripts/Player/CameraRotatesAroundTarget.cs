@@ -4,7 +4,8 @@ using System.Collections;
 public class CameraRotatesAroundTarget : MonoBehaviour {
 	
 	[SerializeField] protected Transform targetCamera;
-
+	[SerializeField] GameObject player;
+	[SerializeField] float verticalRotationClamp = -20;
 	Quaternion initialRotation;
 
 	float verticalInputBoost = 100;
@@ -19,9 +20,10 @@ public class CameraRotatesAroundTarget : MonoBehaviour {
 	}
 
 	void Update(){
+		transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 1.5f);
 		horizontalRotation += Input.GetAxis("Mouse X") * Time.deltaTime * horizontalInputBoost;
 		verticalRotation += -Input.GetAxis("Mouse Y") * Time.deltaTime * verticalInputBoost;
-		verticalRotation = Mathf.Clamp(verticalRotation, -20, 90);
+		verticalRotation = Mathf.Clamp(verticalRotation, verticalRotationClamp, 90);
 
 		transform.rotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0);
 

@@ -62,7 +62,7 @@ public class PlatformManager : MonoBehaviour {
 			gems[i] = Random.Range(0, count);
 		}
 
-		float avgHeight = EndHeight / depthIterations * 2f;
+		float avgHeight = EndHeight;
 
 		Vector3 spos = transform.position;
 		spos.x -= Width/2f;
@@ -85,7 +85,7 @@ public class PlatformManager : MonoBehaviour {
 
 				GameObject plat = GameObject.Instantiate(Platform);
 				float xPos = spos.x + ((float)w/widthIterations)*Width;
-				float yPos = spos.y + ((float)d/depthIterations)*EndHeight;
+				float yPos = spos.y - EndHeight / 2.0f;
 				float zPos = spos.z + ((float)d/depthIterations)*Depth;
 
 				float xScale = ApproximateCubeWidth + Random.Range(-WidthErrorMargin/2f, WidthErrorMargin/2f);
@@ -93,11 +93,11 @@ public class PlatformManager : MonoBehaviour {
 				float zScale = xScale;
 
 				plat.transform.position = new Vector3(xPos, yPos, zPos);
-				plat.transform.localScale = new Vector3(xScale, yScale, zScale );
+				plat.transform.localScale = new Vector3(xScale, zScale, yScale );
 				plat.transform.parent = transform;
-				float c = Random.Range(0f,1f);
 
-				Color col = new Color(c, c, c, 1.0f);
+				float c = Random.Range(0f,0.8f);
+				Color col = new Color(c+0.1f, c, c, 1.0f);
 				plat.GetComponent<MeshRenderer>().material.color = col; 
 				plat.GetComponent<Platform>().SetMaterialColor(col);
 					

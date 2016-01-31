@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
+using UnityEngine.UI;
 
 [RequireComponent (typeof(Camera))]
 public class ShaderToy : PostEffectsBase
@@ -13,7 +14,16 @@ public class ShaderToy : PostEffectsBase
 	public float DistFromPath;
 	public float DistFromOrigin;
 
+	public Canvas WinningCanvas;
+	public Material WinningMaterial;
+
     private Material material = null;
+	private bool winner = false;
+
+	public void Win() {
+		material = CheckShaderAndCreateMaterial(shader,WinningMaterial);
+		winner = true;
+	}
 
     public override bool CheckResources ()
 	{
@@ -27,7 +37,7 @@ public class ShaderToy : PostEffectsBase
 
     void OnRenderImage (RenderTexture source, RenderTexture destination)
 	{
-        if (CheckResources()==false)
+		if (CheckResources()==false)
 		{
             Graphics.Blit (source, destination);
             return;
@@ -35,20 +45,24 @@ public class ShaderToy : PostEffectsBase
 
 		int rtW = source.width >> downsample;
 		int rtH = source.height >> downsample;
-		
+
 		// downsample
 		RenderTexture rt = RenderTexture.GetTemporary (rtW, rtH, 0, source.format);
 		
 		rt.filterMode = FilterMode.Bilinear;
+
 		Graphics.Blit (source, rt, material, 0);
 
-		material.SetVector("iResolution",new Vector4(Screen.width,Screen.height,0,0));
-		material.SetFloat("distFromOrigin", 100f );
-		material.SetVector("buddyPos",BuddyBoy.transform.position);
-		material.SetFloat("distFromPath", 0f );
-		material.SetVector("camForward",BuddyBoy.transform.forward);
-		material.SetVector("camRight",BuddyBoy.transform.right);
-		material.SetVector("camUp",BuddyBoy.transform.up);
+		if (!winner) {
+			material.SetVector("iResolution",new Vector4(Screen.width,Screen.height,0,0));
+			material.SetFloat("distFromOrigin", DistFromOrigin );
+			material.SetVector("buddyPos",BuddyBoy.transform.position);
+			material.SetFloat("distFromPath", DistFromPath );
+			material.SetVector("camForward",BuddyBoy.transform.forward);
+			material.SetVector("camRight",BuddyBoy.transform.right);
+			material.SetVector("camUp",BuddyBoy.transform.up);
+		}
+
 		Graphics.Blit (rt, destination);
 		RenderTexture.ReleaseTemporary (rt);
     }

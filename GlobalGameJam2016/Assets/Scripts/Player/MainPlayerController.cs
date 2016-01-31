@@ -7,6 +7,7 @@ public class MainPlayerController : MonoBehaviour {
 
 	[SerializeField] protected Animator playerAnimator;
 	[SerializeField] protected Rigidbody playerRigidbody;
+	[SerializeField] float jumpForce = 35f;
 
 	float forwardMoveSpeed = 20f,
 		  backwardMoveSpeed = 10f,
@@ -36,26 +37,26 @@ public class MainPlayerController : MonoBehaviour {
 
 		Vector3 moveDirection = Vector3.zero;
 		if (Input.GetKey(KeyCode.W)){
-			moveDirection -= transform.right * forwardMoveSpeed * Time.deltaTime;
+			moveDirection -= transform.right * forwardMoveSpeed * Time.smoothDeltaTime;
 		}
 		if (Input.GetKey(KeyCode.A)){
 			if (rotating){
-				moveDirection -= transform.forward * forwardMoveSpeed * Time.deltaTime;
+				moveDirection -= transform.forward * forwardMoveSpeed * Time.smoothDeltaTime;
 			}
 			else{
-				transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+				transform.Rotate(Vector3.up, -rotationSpeed * Time.smoothDeltaTime);
 			}
 
 		}
 		if (Input.GetKey(KeyCode.S)){
-			transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+			transform.Rotate(Vector3.up, rotationSpeed * Time.smoothDeltaTime);
 		} 
 		if (Input.GetKey(KeyCode.D)){
 			if (rotating){
-				moveDirection += transform.forward * forwardMoveSpeed * Time.deltaTime;
+				moveDirection += transform.forward * forwardMoveSpeed * Time.smoothDeltaTime;
 			}
 			else{
-				transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+				transform.Rotate(Vector3.up, rotationSpeed * Time.smoothDeltaTime);
 			}
 		}
 
@@ -72,7 +73,7 @@ public class MainPlayerController : MonoBehaviour {
 		if (jumping && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(jumpStateName)){
 			playerAnimator.SetTrigger("Jump");
 			jumping = false;
-			playerRigidbody.AddForce(Vector3.up * 35, ForceMode.VelocityChange);
+			playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
 		}
 	}
 }
