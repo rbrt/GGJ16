@@ -11,20 +11,20 @@ public class Menu : MonoBehaviour {
 
 	void Awake(){
 		currentImage = topImage;
-		bottomImage.SetActive(false);
+		//	bottomImage.SetActive(false);
 	}
 
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Up) || Input.GetKeyDown(KeyCode.Down)){
-			currentImage.SetActive(false);
-			if (currentImage == topImage){
-				currentImage = bottomImage;
-			}
-			else{
-				currentImage = topImage;
-			}
-
-			currentImage.SetActive(true);
-		}
+//		if (Input.GetKeyDown(KeyCode.Up) || Input.GetKeyDown(KeyCode.Down)){
+//			//currentImage.SetActive(false);
+//			if (currentImage == topImage){
+//				currentImage = bottomImage;
+//			}
+//			else{
+//				currentImage = topImage;
+//			}
+//
+//			//currentImage.SetActive(true);
+//		}
 	}
 }

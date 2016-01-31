@@ -22,7 +22,14 @@ public class ShaderToy : PostEffectsBase
 
 	public void Win() {
 		material = CheckShaderAndCreateMaterial(shader,WinningMaterial);
+		WinningCanvas.gameObject.SetActive(true);
 		winner = true;
+	}
+
+	public void Update() {
+		if (winner && Input.GetKeyDown(KeyCode.Space)) {
+			Application.LoadLevel(0);
+		}
 	}
 
     public override bool CheckResources ()
