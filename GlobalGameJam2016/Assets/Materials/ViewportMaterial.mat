@@ -139,6 +139,10 @@ Material:
         first:
           name: _Blackout
         second: 1
+      data:
+        first:
+          name: _Chroma
+        second: 0
     m_Colors:
       data:
         first:

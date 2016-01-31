@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class StartLightOrbSequence : MonoBehaviour {
@@ -115,6 +116,10 @@ public class StartLightOrbSequence : MonoBehaviour {
 		yield return new WaitForSeconds(.5f);
 
 		TextManager.Instance.ShowUltimateSuccessString();
+
+		yield return new WaitForSeconds(2);
+
+		SceneManager.LoadScene("Menu");
 
 	}
 
