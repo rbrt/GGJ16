@@ -21,7 +21,6 @@ public class MenuChroma : MonoBehaviour {
 			}
 
 			for (float i = chroma; i < target; i += .07f){
-				mat.SetFloat("_Chroma", i);
 				yield return null;
 			}
 			chroma = target;
@@ -33,7 +32,6 @@ public class MenuChroma : MonoBehaviour {
 
 			for (float i = chroma; i > target; i -= .07f){
 				mat.SetFloat("_Chroma", i);
-				Debug.Log(chroma);
 				yield return null;
 			}
 			chroma = target;

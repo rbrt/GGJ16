@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -55,7 +55,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 3
     m_Resolution: 1
-    m_BakeResolution: 2
+    m_BakeResolution: 1
     m_TextureWidth: 1024
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
@@ -11555,7 +11555,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: 377}
+  m_AnchoredPosition: {x: -293, y: 376}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584763639
@@ -11578,8 +11578,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 88
+    m_Font: {fileID: 12800000, guid: 448c5a152f51842408c183b174629f59, type: 3}
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -13504,7 +13504,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: 205}
+  m_AnchoredPosition: {x: -293, y: 193}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658153043
@@ -13527,12 +13527,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 88
+    m_Font: {fileID: 12800000, guid: 448c5a152f51842408c183b174629f59, type: 3}
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 8
-    m_MaxSize: 88
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -14984,6 +14984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 717286573}
   playerRigidbody: {fileID: 717286572}
+  jumpForce: 35
 --- !u!54 &717286572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39503,7 +39504,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -40201,6 +40202,48 @@ Transform:
   - {fileID: 65800875}
   m_Father: {fileID: 756205789}
   m_RootOrder: 16
+--- !u!1001 &1863567790
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -255.80762
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 77.66719
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -27.904987
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492366, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 593a14df6d78c4cc7bd1b2790de95f39, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1865660422
 GameObject:
   m_ObjectHideFlags: 0

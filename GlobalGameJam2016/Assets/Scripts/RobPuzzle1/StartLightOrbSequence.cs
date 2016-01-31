@@ -75,10 +75,13 @@ public class StartLightOrbSequence : MonoBehaviour {
 		targetCamera.transform.position = orbViewingTarget.position;
 		targetCamera.transform.rotation = orbViewingTarget.rotation;
 
+		AudioManager.PlayLaser();
+
 		yield return new WaitForSeconds(1.2f);
 
 		targetRotation = Quaternion.LookRotation(baphometViewingTarget.transform.position - targetCamera.transform.position);
 		currentRotation = targetCamera.transform.rotation;
+
 		for (float i = 0; i < 1; i += Time.deltaTime / .4f){
 			targetCamera.rotation = Quaternion.Slerp(currentRotation, targetRotation, i);
 			yield return null;

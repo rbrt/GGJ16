@@ -67,6 +67,8 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		}
 		yield return new WaitForSeconds(.2f);
 
+		AudioManager.PlayFire();
+
 		// play death animation here too
 		deathParticleSystem.gameObject.SetActive(true);
 		deathParticleSystem.Play();
@@ -117,6 +119,8 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 			instance = this;
 			this.StartSafeCoroutine(StartScene());
 		}
+
+		timeSinceLastWalk = Time.time;
 	}
 
 	void Update () {
@@ -127,7 +131,14 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		HandleAnimations();
 
 		lastWalking = walking;
+
+		if (walking && (Time.time - timeSinceLastWalk) > .25f){
+			timeSinceLastWalk = Time.time;
+			AudioManager.PlayFootStep();
+		}
 	}
+
+	float timeSinceLastWalk = 0;
 
 	void HandleInput(){
 		walking = (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D));
