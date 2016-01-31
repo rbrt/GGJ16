@@ -9,6 +9,6 @@ public class BadTile : MonoBehaviour {
 	}
 
 	void TileEnterAction(){
-		Debug.Log("BAD TILE");
+		RobPuzzle1PlayerController.Instance.Die();
 	}
 }

@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -605,7 +605,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -2520,72 +2520,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 463000, guid: 95f72951d96764336bd4be97bf5822fb, type: 2}
   m_PrefabInternal: {fileID: 875337512}
---- !u!1001 &460013466
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -406.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 23.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -13.921519
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.00000016292068
-      objectReference: {fileID: 0}
-    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: 0.10028076
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00038719177
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: 1.5966805
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 6.68044
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: -5.680437
-      objectReference: {fileID: 0}
-    - target: {fileID: 13714664, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 1.3991151
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &466128222
 Prefab:
   m_ObjectHideFlags: 0
@@ -5072,6 +5006,52 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 6552430, guid: 0ef44520ea2c140b1bfe347f2f5ec61e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0ef44520ea2c140b1bfe347f2f5ec61e, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1012063117
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -406.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -13.921519
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000016292068
+      objectReference: {fileID: 0}
+    - target: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495366, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
+      propertyPath: puzzleCamera
+      value: 
+      objectReference: {fileID: 264933642}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1012088618 stripped
 Transform:
@@ -7965,7 +7945,7 @@ Prefab:
 --- !u!4 &1487475101 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402162, guid: 4177823a1ccbe4996b4bd9bf3625b2c2, type: 2}
-  m_PrefabInternal: {fileID: 460013466}
+  m_PrefabInternal: {fileID: 1012063117}
 --- !u!1001 &1489377827
 Prefab:
   m_ObjectHideFlags: 0
@@ -10020,7 +10000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1950592928
 Transform:
   m_ObjectHideFlags: 0
@@ -10048,7 +10028,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05

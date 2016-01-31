@@ -15,13 +15,13 @@ public class TileEntered : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.GetComponent<MainPlayerController>() != null){
+		if (other.GetComponent<RobPuzzle1PlayerController>() != null){
 	 		enterAction.Invoke();
 		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if (other.GetComponent<MainPlayerController>() != null){
+		if (other.GetComponent<RobPuzzle1PlayerController>() != null){
 	 		exitAction.Invoke();
 		}
 	}
