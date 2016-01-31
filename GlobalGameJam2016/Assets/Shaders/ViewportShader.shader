@@ -4,6 +4,7 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Saturation ("Saturation", Range(0,1)) = 1
+		_Crush ("Crush", Range(0, 600)) = 600
 	}
 	SubShader
 	{
@@ -36,6 +37,7 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float _Saturation;
+			float _Crush;
 
 			v2f vert (appdata v)
 			{
