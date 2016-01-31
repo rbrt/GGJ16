@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
@@ -11,20 +12,29 @@ public class Menu : MonoBehaviour {
 
 	void Awake(){
 		currentImage = topImage;
-		//	bottomImage.SetActive(false);
+		bottomImage.enabled = false;
 	}
 
 	void Update () {
-//		if (Input.GetKeyDown(KeyCode.Up) || Input.GetKeyDown(KeyCode.Down)){
-//			//currentImage.SetActive(false);
-//			if (currentImage == topImage){
-//				currentImage = bottomImage;
-//			}
-//			else{
-//				currentImage = topImage;
-//			}
-//
-//			//currentImage.SetActive(true);
-//		}
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)){
+			currentImage.enabled = false;
+			if (currentImage == topImage){
+				currentImage = bottomImage;
+			}
+			else{
+				currentImage = topImage;
+			}
+
+			currentImage.enabled = true;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)){
+			if (currentImage == topImage){
+				SceneManager.LoadScene("CronMaze");
+			}
+			else {
+				SceneManager.LoadScene("RobPuzzle1");
+			}
+		}
 	}
 }

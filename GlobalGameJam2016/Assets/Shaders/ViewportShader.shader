@@ -5,6 +5,7 @@
 		_MainTex ("Texture", 2D) = "white" {}
 		_Saturation ("Saturation", Range(0,1)) = 1
 		_Blackout ("Blackout", Range(0,1)) = 0
+		_Chroma ("Chroma", Range(0,1)) = 0
 	}
 	SubShader
 	{
@@ -32,8 +33,10 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float4 _MainTex_TexelSize;
 			float _Saturation;
 			float _Blackout;
+			float _Chroma;
 
 			float3 vignette(float2 uv, float3 col){
 				float2 centerUV = abs(uv * 2 - half2(1,1));
@@ -44,6 +47,17 @@
 					col *= (1 - val * val);
 				}
 				return col;
+			}
+
+			float3 chroma(float3 col, float2 uv){
+				uv.x += _MainTex_TexelSize.x * (1 + _Chroma * 8);
+				fixed4 colA = tex2D(_MainTex, uv);
+				uv.x -= _MainTex_TexelSize.x * (1 + _Chroma * 16);
+				fixed4 colB = tex2D(_MainTex, uv);
+				fixed3 newColor = fixed3(col.r, colA.g, colB.b);
+
+				return newColor;
+
 			}
 
 			v2f vert (appdata v) {
@@ -58,10 +72,11 @@
 
 				col.rgb = lerp(dot(col.rgb, fixed3(.222, .707, .071)), col.rgb, _Saturation);
 
+				col.rgb = lerp(col.rgb, chroma(col.rgb, i.uv), _Chroma);
+
 				col.rgb = vignette(i.uv, col.rgb);
 
 				col.rgb *= _Blackout;
-
 				return col;
 			}
 			ENDCG
