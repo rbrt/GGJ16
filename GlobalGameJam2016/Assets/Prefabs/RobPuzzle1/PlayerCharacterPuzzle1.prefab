@@ -329,23 +329,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &155118
+--- !u!1 &156370
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 490030}
-  - 198: {fileID: 19885884}
-  - 199: {fileID: 19965720}
+  - 4: {fileID: 461286}
+  - 198: {fileID: 19852960}
+  - 199: {fileID: 19994162}
   m_Layer: 0
-  m_Name: Death Particle System
+  m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &161382
 GameObject:
   m_ObjectHideFlags: 1
@@ -495,7 +495,7 @@ Transform:
   - {fileID: 414138}
   - {fileID: 454532}
   - {fileID: 403346}
-  - {fileID: 490030}
+  - {fileID: 461286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &403346
@@ -733,6 +733,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 402162}
   m_RootOrder: 1
+--- !u!4 &461286
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.53, y: -2.34, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402162}
+  m_RootOrder: 3
 --- !u!4 &469294
 Transform:
   m_ObjectHideFlags: 1
@@ -822,18 +834,6 @@ Transform:
   m_LocalScale: {x: 0.4999999, y: 0.50000006, z: 0.49999988}
   m_Children: []
   m_Father: {fileID: 408722}
-  m_RootOrder: 3
---- !u!4 &490030
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155118}
-  m_LocalRotation: {x: -0.000000059604645, y: -1, z: -0.000000029802322, w: -0.00000013411045}
-  m_LocalPosition: {x: 0, y: -1.3400021, z: -0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
-  m_Children: []
-  m_Father: {fileID: 402162}
   m_RootOrder: 3
 --- !u!4 &499598
 Transform:
@@ -970,7 +970,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 5440450}
   deathCameraTarget: {fileID: 403346}
   puzzleCamera: {fileID: 0}
-  deathParticleSystem: {fileID: 19885884}
+  deathParticleSystem: {fileID: 19852960}
 --- !u!136 &13605290
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -978,7 +978,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132152}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.32
   m_Height: 2.18
@@ -991,7 +991,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172392}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.32
   m_Height: 2.18
@@ -1004,7 +1004,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106542}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.28
   m_Height: 1.5
@@ -1017,7 +1017,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127396}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.28
   m_Height: 1.5
@@ -1030,7 +1030,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190150}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.35
@@ -1043,7 +1043,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183308}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.56
   m_Height: 1.48
@@ -1056,7 +1056,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153042}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.2
   m_Height: 1
@@ -1700,12 +1700,12 @@ Cloth:
   - {fileID: 13624638}
   - {fileID: 13662680}
   m_SphereColliders: []
---- !u!198 &19885884
+--- !u!198 &19852960
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155118}
+  m_GameObject: {fileID: 156370}
   serializedVersion: 2
   lengthInSec: 5
   startDelay:
@@ -1746,8 +1746,8 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
-  playOnAwake: 0
+  prewarm: 1
+  playOnAwake: 1
   moveWithTransform: 1
   scalingMode: 1
   InitialModule:
@@ -1915,10 +1915,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4281450495
+        rgba: 4284466175
       minMaxState: 0
     startSize:
-      scalar: 2.5
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2059,18 +2059,18 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 300
+    maxNumParticles: 400
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 0
-    radius: 5.9287786
+    type: 5
+    radius: 5.4595976
     angle: 25
     length: 5
-    boxX: 1
-    boxY: 1
-    boxZ: 1
+    boxX: 3.5
+    boxY: 11.55
+    boxZ: 3.394989
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
@@ -2086,7 +2086,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 500
+      scalar: 300
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2141,22 +2141,22 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.47330964
+          value: 0.111111104
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 0.13658537
+        - time: 0.13033041
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: 0.58859587
+          outSlope: 0.58859587
           tangentMode: 0
-        - time: 0.8682927
+        - time: 0.9118063
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: -0.101327896
+          outSlope: -0.101327896
           tangentMode: 0
         - time: 1
-          value: 0.2241993
+          value: 0.02222222
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2294,10 +2294,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4283821055
+          rgba: 4284209663
         key1:
           serializedVersion: 2
-          rgba: 4281419519
+          rgba: 4282925823
         key2:
           serializedVersion: 2
           rgba: 0
@@ -3209,15 +3209,15 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19965720
+--- !u!199 &19994162
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155118}
+  m_GameObject: {fileID: 156370}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: bd972f148243a45ac820977f0ebf95a3, type: 2}
   m_SubsetIndices: 
