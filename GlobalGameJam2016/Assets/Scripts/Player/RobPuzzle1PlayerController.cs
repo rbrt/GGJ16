@@ -30,7 +30,11 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		 rotating = false,
 		 dead = false;
 
-	string jumpStateName = "Jump";
+	bool lastWalking = false;
+
+	static string jumpStateName = "Jump";
+
+	Vector3 moveDirection;
 
 	public void Die(){
 		if (dead){
@@ -40,6 +44,7 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		walking = false;
 		jumping = false;
 		rotating = false;
+		lastWalking = false;
 		dead = true;
 
 		HandleAnimations();
@@ -84,6 +89,8 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 	}
 
 	void Awake(){
+		Application.targetFrameRate = 30;
+
 		if (instance == null){
 			instance = this;
 		}
@@ -95,6 +102,8 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 		}
 		HandleInput();
 		HandleAnimations();
+
+		lastWalking = walking;
 	}
 
 	void HandleInput(){
@@ -107,7 +116,7 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 			rotating = false;
 		}
 
-		Vector3 moveDirection = Vector3.zero;
+		moveDirection = Vector3.zero;
 		if (Input.GetKey(KeyCode.W)){
 			moveDirection -= transform.right * forwardMoveSpeed * Time.deltaTime;
 		}
@@ -121,7 +130,7 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 
 		}
 		if (Input.GetKey(KeyCode.S)){
-			transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+			moveDirection += transform.right * backwardMoveSpeed * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.D)){
 			if (rotating){
@@ -140,7 +149,9 @@ public class RobPuzzle1PlayerController : MonoBehaviour {
 	}
 
 	void HandleAnimations(){
-		playerAnimator.SetBool("Walking", walking);
+		if (walking != lastWalking){
+			playerAnimator.SetBool("Walking", walking);
+		}
 
 		if (jumping && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(jumpStateName)){
 			playerAnimator.SetTrigger("Jump");

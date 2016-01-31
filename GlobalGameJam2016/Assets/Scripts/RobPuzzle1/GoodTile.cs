@@ -9,11 +9,13 @@ public class GoodTile : MonoBehaviour {
 				  saturation = "_Saturation";
 
 	SafeCoroutine hintDisplayCoroutine;
+	Material myMaterial;
 
 	void Awake () {
 		targetRenderer = GetComponentInChildren<Renderer>();
 		targetRenderer.material = new Material(targetRenderer.material);
-		targetRenderer.material.SetFloat(showGlyph, 0);
+		myMaterial = targetRenderer.material;
+		myMaterial.SetFloat(showGlyph, 0);
 		GetComponentInChildren<TileEntered>().SetEnterAction(TileEnterAction);
 		GetComponentInChildren<TileEntered>().SetExitAction(TileExitAction);
 	}
@@ -37,24 +39,24 @@ public class GoodTile : MonoBehaviour {
 
 	IEnumerator ShowHint(){
 		for (float i = 0; i < 1; i += Time.deltaTime){
-			targetRenderer.material.SetFloat(showGlyph, i);
+			myMaterial.SetFloat(showGlyph, i);
 			yield return null;
 		}
 
 		for (float i = 0; i < 1; i += Time.deltaTime){
-			targetRenderer.material.SetFloat(showGlyph, 1 - (i * .2f));
+			myMaterial.SetFloat(showGlyph, 1 - (i * .2f));
 			yield return null;
 		}
 
 		while (true){
 			float flickerIn = Random.Range(.2f, .5f);
 			float flickerOut = Random.Range(.2f, .5f);
-			for (float i = targetRenderer.material.GetFloat(showGlyph); i < 1; i += Time.deltaTime / flickerIn){
-				targetRenderer.material.SetFloat(showGlyph, i);
+			for (float i = .8f; i < 1; i += Time.deltaTime / flickerIn){
+				myMaterial.SetFloat(showGlyph, i);
 				yield return null;
 			}
 			for (float i = 0; i < 1; i += Time.deltaTime / flickerOut){
-				targetRenderer.material.SetFloat(showGlyph, 1 - (i * .2f));
+				myMaterial.SetFloat(showGlyph, 1 - (i * .2f));
 				yield return null;
 			}
 		}
@@ -62,7 +64,7 @@ public class GoodTile : MonoBehaviour {
 
 	IEnumerator KillTile(){
 		for (float i = 0; i < 1; i += Time.deltaTime){
-			targetRenderer.material.SetFloat(saturation, 1-i);
+			myMaterial.SetFloat(saturation, 1-i);
 			yield return null;
 		}
 	}
