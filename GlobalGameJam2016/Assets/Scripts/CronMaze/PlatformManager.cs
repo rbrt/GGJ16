@@ -51,8 +51,8 @@ public class PlatformManager : MonoBehaviour {
 	}
 
 	void LoadPlatforms() {
-		int widthIterations = (int)(Width / ApproximateCubeWidth);
-		int depthIterations = (int)(Depth / ApproximateCubeDepth);
+		int widthIterations = (int)(Width * 0.5f / ApproximateCubeWidth);
+		int depthIterations = (int)(Depth * 0.5f / ApproximateCubeDepth);
 
 		int count = widthIterations * depthIterations;
 
@@ -66,6 +66,8 @@ public class PlatformManager : MonoBehaviour {
 
 		Vector3 spos = transform.position;
 		spos.x -= Width/2f;
+		float noiseFreq = 10f;
+		float maxExtraHeight = 16f;
 
 		for (int w = 0; w < widthIterations; w++) {
 			for (int d = 0; d < depthIterations; d++) {
@@ -79,17 +81,23 @@ public class PlatformManager : MonoBehaviour {
 					}
 				}
 
-				if (!placeGem && Random.Range(0, 2) == 0) {
-					continue;
+			
+				GameObject plat = GameObject.Instantiate(Platform);
+				float hehe = 0f;
+
+				if (d % 2 == 0) {
+					hehe = ApproximateCubeWidth*0.84f;
 				}
 
-				GameObject plat = GameObject.Instantiate(Platform);
-				float xPos = spos.x + ((float)w/widthIterations)*Width;
-				float yPos = spos.y - EndHeight / 2.0f;
-				float zPos = spos.z + ((float)d/depthIterations)*Depth;
+				float h = avgHeight + maxExtraHeight*Mathf.PerlinNoise((float)w/widthIterations *noiseFreq, (float)d/depthIterations*noiseFreq);
+				Debug.Log(h);
+
+				float xPos = hehe + spos.x + ((float)w/widthIterations)*Width*0.85f;
+				float yPos = spos.y - avgHeight / 2.0f;
+				float zPos = spos.z + ((float)d/depthIterations)*Depth*0.75f;
 
 				float xScale = ApproximateCubeWidth + Random.Range(-WidthErrorMargin/2f, WidthErrorMargin/2f);
-				float yScale = avgHeight + Random.Range(-HeightErrorMargin/2f, HeightErrorMargin/2f);
+				float yScale = h;
 				float zScale = xScale;
 
 				plat.transform.position = new Vector3(xPos, yPos, zPos);
