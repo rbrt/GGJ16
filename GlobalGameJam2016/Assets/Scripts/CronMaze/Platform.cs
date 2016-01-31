@@ -22,7 +22,6 @@ public class Platform : MonoBehaviour {
 		if (timeoutStarted) {
 			CurrentTime += Time.deltaTime;
 			matColor.a = 1f - CurrentTime / Timeout;
-			Debug.Log(matColor.a);
 			renderer.material.SetColor("_Color", matColor);
 		}
 		if (CurrentTime >= Timeout) {

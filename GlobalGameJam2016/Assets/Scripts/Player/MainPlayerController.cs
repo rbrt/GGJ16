@@ -20,9 +20,18 @@ public class MainPlayerController : MonoBehaviour {
 
 	string jumpStateName = "Jump";
 
+	float timeSinceLastWalk = 0;
+
 	void Update () {
 		HandleInput();
 		HandleAnimations();
+
+		if (walking && (Time.time - timeSinceLastWalk) > .25f){
+			timeSinceLastWalk = Time.time;
+			AudioManager.PlayFootStep();
+		}
+
+		timeSinceLastWalk = Time.time;
 	}
 
 	void HandleInput(){
@@ -50,7 +59,7 @@ public class MainPlayerController : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.S)){
 			transform.Rotate(Vector3.up, rotationSpeed * Time.smoothDeltaTime);
-		} 
+		}
 		if (Input.GetKey(KeyCode.D)){
 			if (rotating){
 				moveDirection += transform.forward * forwardMoveSpeed * Time.smoothDeltaTime;

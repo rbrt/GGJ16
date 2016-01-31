@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 445430}
   - 82: {fileID: 8244044}
   m_Layer: 0
-  m_Name: Wind Audio Source
+  m_Name: 'Music Audio Source '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,6 +48,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &152930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 416704}
+  - 82: {fileID: 8212000}
+  m_Layer: 0
+  m_Name: Wind Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &168752
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +92,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 492366}
   m_RootOrder: 2
+--- !u!4 &416704
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 492366}
+  m_RootOrder: 0
 --- !u!4 &445430
 Transform:
   m_ObjectHideFlags: 1
@@ -87,7 +115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492366}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!4 &457082
 Transform:
   m_ObjectHideFlags: 1
@@ -107,14 +135,89 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -255.80762, y: 77.66719, z: -27.904987}
+  m_LocalPosition: {x: -317.7351, y: 37.299744, z: -129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 445430}
+  - {fileID: 416704}
   - {fileID: 457082}
   - {fileID: 412998}
+  - {fileID: 445430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8212000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152930}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 66c50229d241048e38f4ce4ecf894ef5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.317
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &8221496
 AudioSource:
   m_ObjectHideFlags: 1
@@ -350,13 +453,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 142b3345f2c474ab090f68ac50904c11, type: 3}
   crow: {fileID: 8300000, guid: 007666034666745ff8aff1ade60a5add, type: 3}
-  wind: {fileID: 8300000, guid: c787291e33485487180ce0e5a82097c7, type: 3}
+  wind: {fileID: 8300000, guid: 66c50229d241048e38f4ce4ecf894ef5, type: 3}
   laser: {fileID: 8300000, guid: caa15cd509d28477d9037279b01d949c, type: 3}
   fire: {fileID: 8300000, guid: 59fa9ab2f7e844b2f9d7d0c8ea63b71f, type: 3}
   music: {fileID: 0}
   effectSourceA: {fileID: 8221496}
   effectSourceB: {fileID: 8293930}
-  windSource: {fileID: 8244044}
+  windSource: {fileID: 8212000}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

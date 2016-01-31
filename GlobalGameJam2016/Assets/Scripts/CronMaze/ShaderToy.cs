@@ -55,10 +55,12 @@ public class ShaderToy : PostEffectsBase
 
 		// downsample
 		RenderTexture rt = RenderTexture.GetTemporary (rtW, rtH, 0, source.format);
-		
+
 		rt.filterMode = FilterMode.Bilinear;
 
 		Graphics.Blit (source, rt, material, 0);
+
+		Debug.Log("MSKFNAN");
 
 		if (!winner) {
 			material.SetVector("iResolution",new Vector4(Screen.width,Screen.height,0,0));

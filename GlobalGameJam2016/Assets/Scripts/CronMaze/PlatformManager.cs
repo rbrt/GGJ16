@@ -56,7 +56,7 @@ public class PlatformManager : MonoBehaviour {
 
 		int count = widthIterations * depthIterations;
 
-		int[] gems = new int[NumGems]; 
+		int[] gems = new int[NumGems];
 
 		for (int i = 0; i < NumGems; i++) {
 			gems[i] = Random.Range(0, count);
@@ -81,7 +81,7 @@ public class PlatformManager : MonoBehaviour {
 					}
 				}
 
-			
+
 				GameObject plat = GameObject.Instantiate(Platform);
 				float hehe = 0f;
 
@@ -90,7 +90,6 @@ public class PlatformManager : MonoBehaviour {
 				}
 
 				float h = avgHeight + maxExtraHeight*Mathf.PerlinNoise((float)w/widthIterations *noiseFreq, (float)d/depthIterations*noiseFreq);
-				Debug.Log(h);
 
 				float xPos = hehe + spos.x + ((float)w/widthIterations)*Width*0.85f;
 				float yPos = spos.y - avgHeight / 2.0f;
@@ -106,9 +105,9 @@ public class PlatformManager : MonoBehaviour {
 
 				float c = Random.Range(0f,0.8f);
 				Color col = new Color(c+0.1f, c, c, 1.0f);
-				plat.GetComponent<MeshRenderer>().material.color = col; 
+				plat.GetComponent<MeshRenderer>().material.color = col;
 				plat.GetComponent<Platform>().SetMaterialColor(col);
-					
+
 				plat.GetComponent<Platform>().Player = Player;
 				plat.GetComponent<Platform>().Platformer = this;
 
