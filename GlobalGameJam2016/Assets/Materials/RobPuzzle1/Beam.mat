@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ViewportMaterial
-  m_Shader: {fileID: 4800000, guid: b4e6f35bbc34443eab8bd1ed96075431, type: 3}
+  m_Name: Beam
+  m_Shader: {fileID: 207, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 8400000, guid: a2f2917e312b04379ad2471716f98a15, type: 2}
+          m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -129,15 +129,7 @@ Material:
         second: 0
       data:
         first:
-          name: _Saturation
-        second: 1
-      data:
-        first:
-          name: _Crush
-        second: 600
-      data:
-        first:
-          name: _Blackout
+          name: _InvFade
         second: 1
     m_Colors:
       data:
@@ -147,4 +139,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 1, g: 0.24940793, b: 0.20697932, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
